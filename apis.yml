@@ -1,17 +1,50 @@
 aid: recharge
 name: ReCharge
-description: 'ReCharge is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Recharge (formerly ReCharge Payments) is a subscription and recurring-billing
+  platform for e-commerce, most widely deployed on Shopify. DUPLICATE RECORD: this
+  stub was created from the secondary-market harvest backlog (Forge Global listing)
+  and profiles the same company already held in the API Evangelist network as
+  all/recharge-payments, which carries the deep profile (10 registered APIs, refined
+  OpenAPI, plans, rate limits, FinOps, authentication, security and blog artifacts).
+  No API surface has been registered here and no artifacts have been generated, so
+  this record does not split the company across two Kin Scores. It is queued for the
+  duplicate-retirement procedure (survivor: recharge-payments).'
 url: https://raw.githubusercontent.com/api-evangelist/recharge/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: duplicate
+x-tier-reason: duplicate-of-recharge-payments
+x-duplicate-of:
+  slug: recharge-payments
+  survivor: true
+  reason: recharge-payments holds the deep profile (10 APIs + OpenAPI + artifacts);
+    all/recharge is an identity-only stub harvested from a secondary-market listing
+    for the same company.
+  evidence:
+  - source: https://getrecharge.com/llms.txt
+    http_status: 200
+    note: Company site for Recharge, the Shopify subscription platform.
+  - source: https://docs.getrecharge.com/llms.txt
+    http_status: 200
+    note: Developer docs index; points at developer.rechargepayments.com and
+      api.rechargeapps.com, the same API host registered under recharge-payments.
+  - source: https://api.rechargeapps.com/
+    http_status: 401
+    note: Live API host, authenticated; identical to the baseURL on every
+      recharge-payments API entry.
+  determined: '2026-08-02'
+  procedure: duplicate-provider-retirement (retired.yml redirects; port only unique
+    work to the survivor)
 specificationVersion: '0.20'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
+- Subscriptions
+- Recurring Billing
+- E-commerce
+- Shopify
+- Duplicate
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +53,14 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://getrecharge.com
+- type: SecondaryMarket
   url: https://forgeglobal.com/recharge_stock/
+x-enrichment:
+  date: '2026-08-02'
+  status: nochange
+  artifacts_added: 0
+  pass: local-v1
+  note: Enrichment intentionally withheld — contract discovery resolved this stub to
+    an existing network provider (recharge-payments). Building artifacts here would
+    create a second scored profile for one company. Findings routed to the survivor.
