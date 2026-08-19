@@ -35,7 +35,7 @@ x-duplicate-of:
   determined: '2026-08-02'
   procedure: duplicate-provider-retirement (retired.yml redirects; port only unique
     work to the survivor)
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
